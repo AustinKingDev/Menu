@@ -3,32 +3,62 @@
     <div>
       <Logo />
       <h1 class="title">
-        Menu
+        jc items 
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+      <NuxtLink to="/cart">View cart</NuxtLink>
+      <div v-for="item of items">
+        name: {{ item.name }} <br>
+        price: {{ item.price }} <br>
+        desc: {{ item.desc }}
+         <button @click="addCart(item)" >
+          Add to cart 
+        </button>
       </div>
+
+       
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+
+
+export default {
+  data (){
+    return {
+      items: [ {
+                name: "Tataki Tuna Salad 1",
+                price: 14,
+                desc: "salad"
+            
+              }, {
+                name: "Tataki Tuna Salad 2 ",
+                price: 14,
+                desc: "salad"
+            
+              }, {
+                name: "Tataki Tuna Salad 3",
+                price: 14,
+                desc: "salad"
+            
+              }]
+    }
+  },
+  methods: {
+    addCart(item){
+       console.log("add item");
+            // const item = {
+            //     name: "Tataki Tuna Salad",
+            //     price: 14,
+            //     desc: "salad"
+            
+            //   }
+              this.$store.commit("addToCart", item) 
+              this.$router.push("/cart")
+    }
+  }
+
+}
 </script>
 
 <style>
