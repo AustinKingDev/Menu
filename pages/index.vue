@@ -1,21 +1,29 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
+    <div class="floatingMenu">
+      <img src="~/assets/$5Burger.png" />
+      <img src="~/assets/OurMenu.png" />
       <h1 class="title">
-        jc items 
+        
       </h1>
       <NuxtLink to="/cart">View cart</NuxtLink>
-      <div v-for="item of items">
+
+      <!-- <div v-for="item of items" :key="item">
+        <img :src="~/assets/${{ item.img }}">
         name: {{ item.name }} <br>
         price: {{ item.price }} <br>
         desc: {{ item.desc }}
          <button @click="addCart(item)" >
           Add to cart 
         </button>
-      </div>
+      </div> -->
 
        
+    </div>
+    <div></div>
+
+    <div class="container">
+      <img class="menuImage" src="~/assets/Burger.jpg" />
     </div>
   </div>
 </template>
@@ -27,14 +35,16 @@ export default {
   data (){
     return {
       items: [ {
-                name: "Tataki Tuna Salad 1",
-                price: 14,
-                desc: "salad"
+                name: "Burger",
+                price: 5,
+                desc: "",
+                img: "Burger.jpg"
             
               }, {
-                name: "Tataki Tuna Salad 2 ",
-                price: 14,
-                desc: "salad"
+                name: "Tacos ",
+                price: 8,
+                desc: "salad",
+                img: "Taco.jpg"
             
               }, {
                 name: "Tataki Tuna Salad 3",
@@ -66,9 +76,11 @@ export default {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+ 
+  background-color:beige;
 }
 
 .title {
@@ -85,7 +97,7 @@ export default {
   display: block;
   font-weight: 300;
   font-size: 100px;
-  color: #35495e;
+  color: #ffffff;
   letter-spacing: 1px;
 }
 
@@ -99,5 +111,22 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.menuImage {
+  display: flex;
+  order:1;
+  max-height: 400px;
+  max-width: 400px;
+  height: auto;
+  width: auto;
+  border: solid black;
+}
+
+.floatingMenu {
+  clear: both;
+  position: fixed;
+  width: 100%;
+  background-color: darkred;
 }
 </style>
