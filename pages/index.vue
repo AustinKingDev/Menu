@@ -1,22 +1,22 @@
 <template>
   <div class="container">
-    <div class="floatingMenu">
-      <img src="~/assets/$5Burger.png" />
+    <div>
+      <img src="~/assets/5Burger.png" />
       <img src="~/assets/OurMenu.png" />
       <h1 class="title">
         
       </h1>
       <NuxtLink to="/cart">View cart</NuxtLink>
 
-      <!-- <div v-for="item of items" :key="item">
-        <img :src="~/assets/${{ item.img }}">
+      <div v-for="item of items" :key="item.img">
+        <img :src="require(`~/assets/${item.img}`)">
         name: {{ item.name }} <br>
         price: {{ item.price }} <br>
         desc: {{ item.desc }}
          <button @click="addCart(item)" >
           Add to cart 
         </button>
-      </div> -->
+      </div>
 
        
     </div>
