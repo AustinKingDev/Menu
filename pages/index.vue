@@ -1,14 +1,16 @@
 <template>
   <div class="container">
-    <div>
-      <img src="~/assets/5Burger.png" />
-      <img src="~/assets/OurMenu.png" />
-      <h1 class="title">
-        
-      </h1>
+    <div class="logo">
+      <img class="logo" src="~/assets/5Burger.png" />
+    </div>
+
+    <div class="ourMenu">
+      <img class="ourMenu" src="~/assets/OurMenu.png" />
+    </div>
+     
       <NuxtLink to="/cart">View cart</NuxtLink>
 
-      <div v-for="item of items" :key="item.img">
+      <!-- <div v-for="item of items" :key="item.id">
         <img :src="require(`~/assets/${item.img}`)">
         name: {{ item.name }} <br>
         price: {{ item.price }} <br>
@@ -16,14 +18,45 @@
          <button @click="addCart(item)" >
           Add to cart 
         </button>
-      </div>
+      </div> -->
 
        
-    </div>
-    <div></div>
+    
 
-    <div class="container">
-      <img class="menuImage" src="~/assets/Burger.jpg" />
+    <div class="item-1">
+      <img  class="menuImage" src="~/assets/Burger.jpg" />
+    </div>
+
+    <div class="item-2">
+      <img  class="menuImage" src="~/assets/Taco.jpg" />
+    </div>
+
+    <div class="item-3">
+      <img  class="menuImage" src="~/assets/HotDog.jpg" />
+    </div>
+
+    <div class="item-4">
+      <img  class="menuImage" src="~/assets/Chicken.jpg" />
+    </div>
+
+    <div class="item-5">
+      <img  class="menuImage" src="~/assets/Pizza.jpg" />
+    </div>
+
+    <div class="item-6">
+      <img  class="menuImage" src="~/assets/Steak.jpg" />
+    </div>
+
+    <div class="item-7">
+      <img  class="menuImage" src="~/assets/Fries.jpg" />
+    </div>
+
+    <div class="item-8">
+      <img  class="menuImage" src="~/assets/Soup.jpg" />
+    </div>
+
+    <div class="item-9">
+      <img  class="menuImage" src="~/assets/Cake.jpg" />
     </div>
   </div>
 </template>
@@ -35,23 +68,78 @@ export default {
   data (){
     return {
       items: [ {
+                id: 1,
                 name: "Burger",
                 price: 5,
                 desc: "",
                 img: "Burger.jpg"
             
               }, {
+                id: 2,
                 name: "Tacos ",
                 price: 8,
                 desc: "salad",
                 img: "Taco.jpg"
             
               }, {
-                name: "Tataki Tuna Salad 3",
-                price: 14,
-                desc: "salad"
+                id:3,
+                name: "Hot Dog",
+                price: 5,
+                desc: "salad",
+                img: "HotDog.jpg"
             
-              }]
+              },
+              {
+                id:4,
+                name: "Blackened Chicken",
+                price: 10,
+                desc: "",
+                img: "Chicken.jpg"
+            
+              },
+              {
+                id:5,
+                name: "Pizza",
+                price: 4,
+                desc: "",
+                img: "Pizza.jpg"
+            
+              },
+              {
+                id:6,
+                name: "Steak",
+                price: 12,
+                desc: "",
+                img: "Steak.jpg"
+            
+              },
+              {
+                id:7,
+                name: "Tomato Soup",
+                price: 5,
+                desc: "",
+                img: "Soup.jpg"
+            
+              },
+              {
+                id:8,
+                name: "Fries",
+                price: 4,
+                desc: "",
+                img: "Fries.jpg"
+            
+              },
+              {
+                id:9,
+                name: "Chocolate Cake",
+                price: 6,
+                desc: "",
+                img: ".jpg"
+            
+              },
+
+              
+              ]
     }
   },
   methods: {
@@ -75,12 +163,61 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-start;
- 
-  background-color:beige;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 250px;
+  grid-template-areas: 
+  ". logo ."
+  ". ourMenu ."
+  "item-1 item-2 item-3"
+  "item-4 item-5 item-6"
+  "item-7 item-8 item-9";
+ background-color:beige;
+}
+
+.logo{
+  grid-area: logo;
+}
+
+.ourMenu{
+  grid-area: ourMenu;
+  justify-content: right;
+}
+
+.item-1{
+  grid-area: item-1
+}
+
+.item-2{
+  grid-area: item-2;
+}
+
+.item-3{
+  grid-area: item-3;
+}
+
+.item-4{
+  grid-area: item-4;
+}
+
+.item-5{
+  grid-area: item-5;
+}
+
+.item-6{
+  grid-area: item-6;
+}
+
+.item-7{
+  grid-area: item-7;
+}
+
+.item-8{
+  grid-area: item-8;
+}
+
+.item-9{
+  grid-area: item-9;
 }
 
 .title {
@@ -115,12 +252,9 @@ export default {
 
 .menuImage {
   display: flex;
-  order:1;
-  max-height: 400px;
-  max-width: 400px;
-  height: auto;
-  width: auto;
-  border: solid black;
+  height: 435px;
+  width: 435px;
+  margin: 5px;
 }
 
 .floatingMenu {
@@ -129,4 +263,6 @@ export default {
   width: 100%;
   background-color: darkred;
 }
+
+
 </style>
