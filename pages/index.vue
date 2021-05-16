@@ -24,7 +24,9 @@
     
 
     <div class="item-1">
-      <img  class="menuImage" src="~/assets/Burger.jpg" />
+      <span :class="{show: hover}">
+      <img  @mouseover="hover=true" @mouseleave="hover=false" class="menuImage" src="~/assets/Burger.jpg" />
+      </span>
     </div>
 
     <div class="item-2">
@@ -67,6 +69,7 @@
 export default {
   data (){
     return {
+      hover: false,
       items: [ {
                 id: 1,
                 name: "Burger",
@@ -161,13 +164,12 @@ export default {
 
 <style>
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  grid-template-rows: 250px;
+  
+  grid-gap: 10px;
   grid-template-areas: 
-  ". logo ."
+  "logo logo logo"
   ". ourMenu ."
   "item-1 item-2 item-3"
   "item-4 item-5 item-6"
@@ -177,45 +179,37 @@ export default {
 
 .logo{
   grid-area: logo;
+  grid-column-start: 2;
+  justify-content: right;
 }
 
 .ourMenu{
   grid-area: ourMenu;
-  justify-content: right;
 }
-
 .item-1{
   grid-area: item-1
 }
-
 .item-2{
   grid-area: item-2;
 }
-
 .item-3{
   grid-area: item-3;
 }
-
 .item-4{
   grid-area: item-4;
 }
-
 .item-5{
   grid-area: item-5;
 }
-
 .item-6{
   grid-area: item-6;
 }
-
 .item-7{
   grid-area: item-7;
 }
-
 .item-8{
   grid-area: item-8;
 }
-
 .item-9{
   grid-area: item-9;
 }
@@ -251,10 +245,15 @@ export default {
 }
 
 .menuImage {
-  display: flex;
-  height: 435px;
-  width: 435px;
+  display: grid;
+  height: 500px;
+  width: 620px;
   margin: 5px;
+}
+
+.show {
+  opacity: 25%;
+  background-color: black;
 }
 
 .floatingMenu {
