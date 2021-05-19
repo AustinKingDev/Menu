@@ -24,41 +24,39 @@
     
 
     <div class="item-1">
-      <span :class="{show: hover}">
-      <img  @mouseover="hover=true" @mouseleave="hover=false" class="menuImage" src="~/assets/Burger.jpg" />
-      </span>
+      <img  class="menuImage" src="~/assets/Burger.jpg" />
     </div>
 
     <div class="item-2">
-      <img  class="menuImage" src="~/assets/Taco.jpg" />
+      <img class="menuImage" src="~/assets/Taco.jpg" />
     </div>
 
     <div class="item-3">
-      <img  class="menuImage" src="~/assets/HotDog.jpg" />
+      <img class="menuImage" src="~/assets/HotDog.jpg" />
     </div>
 
     <div class="item-4">
-      <img  class="menuImage" src="~/assets/Chicken.jpg" />
+      <img class="menuImage" src="~/assets/Chicken.jpg" />
     </div>
 
     <div class="item-5">
-      <img  class="menuImage" src="~/assets/Pizza.jpg" />
+      <img class="menuImage" src="~/assets/Pizza.jpg" />
     </div>
 
     <div class="item-6">
-      <img  class="menuImage" src="~/assets/Steak.jpg" />
+      <img class="menuImage" src="~/assets/Steak.jpg" />
     </div>
 
     <div class="item-7">
-      <img  class="menuImage" src="~/assets/Fries.jpg" />
+      <img class="menuImage" src="~/assets/Fries.jpg" />
     </div>
 
     <div class="item-8">
-      <img  class="menuImage" src="~/assets/Soup.jpg" />
+      <img class="menuImage" src="~/assets/Soup.jpg" />
     </div>
 
     <div class="item-9">
-      <img  class="menuImage" src="~/assets/Cake.jpg" />
+      <img class="menuImage" src="~/assets/Cake.jpg" />
     </div>
   </div>
 </template>
@@ -180,11 +178,12 @@ export default {
 .logo{
   grid-area: logo;
   grid-column-start: 2;
-  justify-content: right;
+  justify-content: center;
 }
 
 .ourMenu{
   grid-area: ourMenu;
+ justify-content: center;
 }
 .item-1{
   grid-area: item-1
@@ -247,12 +246,17 @@ export default {
 .menuImage {
   display: grid;
   height: 500px;
-  width: 620px;
+  width: 100%;
   margin: 5px;
 }
 
+.menuImage:hover{
+    opacity: 75%;
+    background-color: black;
+}
+
 .show {
-  opacity: 25%;
+  opacity: 75%;
   background-color: black;
 }
 
