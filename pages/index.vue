@@ -1,14 +1,15 @@
 <template>
-  <div class="container">
-    <div class="logo">
+<div class="menuHeader">
+    <div class="center">
       <img class="logo" src="~/assets/5Burger.png" />
     </div>
 
-    <div class="ourMenu">
+    <div class="center1">
       <img class="ourMenu" src="~/assets/OurMenu.png" />
     </div>
      
       <NuxtLink to="/cart">View cart</NuxtLink>
+  <div class="container">
 
       <!-- <div v-for="item of items" :key="item.id">
         <img :src="require(`~/assets/${item.img}`)">
@@ -58,6 +59,7 @@
     <div class="item-9">
       <img class="menuImage" src="~/assets/Cake.jpg" />
     </div>
+  </div>
   </div>
 </template>
 
@@ -176,8 +178,6 @@ export default {
 }
 
 .logo{
-  grid-area: logo;
-  grid-column-start: 2;
   justify-content: center;
 }
 
@@ -255,9 +255,22 @@ export default {
     background-color: black;
 }
 
-.show {
-  opacity: 75%;
-  background-color: black;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:33%
+}
+
+.center1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:25%
+}
+
+.menuHeader {
+  background-image:linear-gradient(rgb(225, 225, 200), beige);
 }
 
 .floatingMenu {
