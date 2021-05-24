@@ -1,17 +1,25 @@
 <template>
-    
-    <div class="container1">
-         <h1 class="title">
-      cart 
-      </h1>
-      <NuxtLink to="/">home</NuxtLink>
-      <div v-for="item of this.$store.state.cart " :key=item> 
-        name: {{ item.name }} <br>
-        price: {{ item.price }} <br>
+  <div style="background-color: beige;">  
+
+    <div class="menuHeader">
+
+      <div class="center">
+        <img class="logo" src="~/assets/Cart.png" />
+      
+        <NuxtLink to="/">home</NuxtLink>
+      </div> <br>
+
+    </div>
+
+      <div v-for="item of this.$store.state.cart " :key=item class="cart-grid"> 
+
+        <img :src="require(`~/assets/${item.img}`)" class="cart-image">
+         {{ item.name }} 
+        price: {{ item.price }} 
         desc: {{ item.desc }}
 
-        </div>
-    </div>
+      </div>
+  </div>
 </template>
 
 <style>
@@ -22,6 +30,18 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color:beige;
+  background-color: beige;
+}
+
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fill, 120px);
+  background-color: beige;
+}
+
+.cart-image {
+  height:120px;
+  width:120px
 }
 </style>

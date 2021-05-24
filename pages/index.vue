@@ -8,57 +8,39 @@
       <img class="ourMenu" src="~/assets/OurMenu.png" />
     </div>
      
-      <NuxtLink to="/cart">View cart</NuxtLink>
+    <NuxtLink to="/cart" style="background: teal; color: white; ">View cart</NuxtLink>
   <div class="container">
 
-      <!-- <div v-for="item of items" :key="item.id">
-        <img :src="require(`~/assets/${item.img}`)">
+     <div v-for="item of items" :key="item.id">
+        <img :src="require(`~/assets/${item.img}`)" class="menuImage">
+
+        <div class="item-content">
         name: {{ item.name }} <br>
         price: {{ item.price }} <br>
-        desc: {{ item.desc }}
+        desc: {{ item.desc }} <br>
          <button @click="addCart(item)" >
           Add to cart 
+        </button> <br>
+        <button @click="addEdit(item)" >
+          Edit 
         </button>
-      </div> -->
+
+        </div>
+       
+      </div>
 
        
     
 
-    <div class="item-1">
+    <div class="item-1 imageContainer">
+      <div style="position: absolute;  top: 50%; display: grid;  grid-template-columns: repeat(3, 1fr);">
+         <button style=" width: 100px">hi</button>
+          <button style=" width: 100px">hi</button>
+          <button style=" width: 100px">hi</button>
+      </div>
       <img  class="menuImage" src="~/assets/Burger.jpg" />
     </div>
 
-    <div class="item-2">
-      <img class="menuImage" src="~/assets/Taco.jpg" />
-    </div>
-
-    <div class="item-3">
-      <img class="menuImage" src="~/assets/HotDog.jpg" />
-    </div>
-
-    <div class="item-4">
-      <img class="menuImage" src="~/assets/Chicken.jpg" />
-    </div>
-
-    <div class="item-5">
-      <img class="menuImage" src="~/assets/Pizza.jpg" />
-    </div>
-
-    <div class="item-6">
-      <img class="menuImage" src="~/assets/Steak.jpg" />
-    </div>
-
-    <div class="item-7">
-      <img class="menuImage" src="~/assets/Fries.jpg" />
-    </div>
-
-    <div class="item-8">
-      <img class="menuImage" src="~/assets/Soup.jpg" />
-    </div>
-
-    <div class="item-9">
-      <img class="menuImage" src="~/assets/Cake.jpg" />
-    </div>
   </div>
   </div>
 </template>
@@ -137,7 +119,7 @@ export default {
                 name: "Chocolate Cake",
                 price: 6,
                 desc: "",
-                img: ".jpg"
+                img: "Cake.jpg"
             
               },
 
@@ -148,12 +130,6 @@ export default {
   methods: {
     addCart(item){
        console.log("add item");
-            // const item = {
-            //     name: "Tataki Tuna Salad",
-            //     price: 14,
-            //     desc: "salad"
-            
-            //   }
               this.$store.commit("addToCart", item) 
               this.$router.push("/cart")
     }
@@ -166,7 +142,6 @@ export default {
 .container {
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  
   grid-gap: 10px;
   grid-template-areas: 
   "logo logo logo"
@@ -185,51 +160,6 @@ export default {
   grid-area: ourMenu;
  justify-content: center;
 }
-.item-1{
-  grid-area: item-1
-}
-.item-2{
-  grid-area: item-2;
-}
-.item-3{
-  grid-area: item-3;
-}
-.item-4{
-  grid-area: item-4;
-}
-.item-5{
-  grid-area: item-5;
-}
-.item-6{
-  grid-area: item-6;
-}
-.item-7{
-  grid-area: item-7;
-}
-.item-8{
-  grid-area: item-8;
-}
-.item-9{
-  grid-area: item-9;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #ffffff;
-  letter-spacing: 1px;
-}
 
 .subtitle {
   font-weight: 300;
@@ -241,6 +171,7 @@ export default {
 
 .links {
   padding-top: 15px;
+ 
 }
 
 .menuImage {
@@ -250,9 +181,52 @@ export default {
   margin: 5px;
 }
 
-.menuImage:hover{
-    opacity: 75%;
-    background-color: black;
+.menuImage:hover + .item-content {
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  top: -50%;
+  left: 50%;
+  color:aliceblue
+    
+}
+
+.button {
+  display: none;
+  width: 250px;
+  height: auto;
+
+}
+
+.imageContainer {
+position: relative;
+}
+
+.imageContainer:hover {
+display: block;
+z-index: 10;
+}
+
+.imageButton {
+  display: none;
+  position: absolute;
+  width: 250px;;
+  top: calc(50%);
+  left: calc(50% - 125px )
+}
+
+.item-content {
+display:none;
+width:250px;
+height: auto;
+}
+
+.item-content:hover {
+  display:inline-block;
+  position: relative;
+  z-index: 10;
+  top: -50%;
+  left: 50%;
 }
 
 .center {
@@ -272,13 +246,5 @@ export default {
 .menuHeader {
   background-image:linear-gradient(rgb(225, 225, 200), beige);
 }
-
-.floatingMenu {
-  clear: both;
-  position: fixed;
-  width: 100%;
-  background-color: darkred;
-}
-
 
 </style>
