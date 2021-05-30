@@ -11,7 +11,7 @@
     <NuxtLink to="/cart" style="background: teal; color: white; ">View cart</NuxtLink>
   <div class="container">
 
-     <div v-for="item of items" :key="item.id">
+     <div v-for="item of items" :key="item.id" class="item-card">
         <img :src="require(`~/assets/${item.img}`)" class="menuImage">
 
         <div class="item-content">
@@ -169,6 +169,7 @@ export default {
   padding-bottom: 15px;
 }
 
+
 .links {
   padding-top: 15px;
  
@@ -176,19 +177,30 @@ export default {
 
 .menuImage {
   display: grid;
-  height: 500px;
+  height: 100%;
   width: 100%;
   margin: 5px;
+}
+
+.menuImage:hover {
+  filter:brightness(50%);
+  
 }
 
 .menuImage:hover + .item-content {
   display: inline-block;
   position: relative;
   z-index: 10;
-  top: -50%;
-  left: 50%;
+  bottom: 80%;
+  left: 30%;
   color:aliceblue
     
+}
+
+.item-card {
+  position: relative;
+  height: 320px;
+  width: auto;
 }
 
 .button {
@@ -209,10 +221,7 @@ z-index: 10;
 
 .imageButton {
   display: none;
-  position: absolute;
   width: 250px;;
-  top: calc(50%);
-  left: calc(50% - 125px )
 }
 
 .item-content {
@@ -223,10 +232,8 @@ height: auto;
 
 .item-content:hover {
   display:inline-block;
-  position: relative;
   z-index: 10;
-  top: -50%;
-  left: 50%;
+
 }
 
 .center {

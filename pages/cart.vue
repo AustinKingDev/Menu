@@ -13,12 +13,14 @@
 
       <div v-for="item of this.$store.state.cart " :key=item class="cart-grid"> 
 
-        <img :src="require(`~/assets/${item.img}`)" class="cart-image">
-         {{ item.name }} 
-        price: {{ item.price }} 
-        desc: {{ item.desc }}
+        <img :src="require(`~/assets/${item.img}`)" class="cart-image" >
+        <p> {{ item.name }} </p>
+        <span>${{ item.price }} </span>
+        /
+  
 
       </div>
+
   </div>
 </template>
 
@@ -38,8 +40,12 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(auto-fill, 120px);
   background-color: beige;
+  margin-bottom: 5px;
+  border-top: 1px solid black;
 }
-
+.vline{
+  border-right: 1px solid black;;
+}
 .cart-image {
   height:120px;
   width:120px
