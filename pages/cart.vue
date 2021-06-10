@@ -15,14 +15,28 @@
 
         <img :src="require(`~/assets/${item.img}`)" class="cart-image" >
         <p> {{ item.name }} </p>
-        <span>${{ item.price }} </span>
-        /
-  
-
+        <span style="">${{ item.price }} </span>
       </div>
+    <div class="cart-grid">
+      <p></p>
+      <p></p>
+      <p>{{store.state.total}}</p>
 
+
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+
+    }
+  }
+}
+</script>
+
 
 <style>
 .container1 {

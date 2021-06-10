@@ -8,7 +8,7 @@
       <img class="ourMenu" src="~/assets/OurMenu.png" />
     </div>
      
-    <NuxtLink to="/cart" style="background: teal; color: white; ">View cart</NuxtLink>
+    <NuxtLink to="/cart" style="background: teal; color: white;position:center; ">View cart</NuxtLink>
   <div class="container">
 
      <div v-for="item of items" :key="item.id" class="item-card">
@@ -28,21 +28,11 @@
         </div>
        
       </div>
-
-       
-    
-
-    <div class="item-1 imageContainer">
-      <div style="position: absolute;  top: 50%; display: grid;  grid-template-columns: repeat(3, 1fr);">
-         <button style=" width: 100px">hi</button>
-          <button style=" width: 100px">hi</button>
-          <button style=" width: 100px">hi</button>
-      </div>
-      <img  class="menuImage" src="~/assets/Burger.jpg" />
+  
     </div>
 
-  </div>
-  </div>
+    </div>
+  
 </template>
 
 <script>
@@ -179,7 +169,7 @@ export default {
   display: grid;
   height: 100%;
   width: 100%;
-  margin: 5px;
+  margin: 10px;
 }
 
 .menuImage:hover {
@@ -231,8 +221,12 @@ height: auto;
 }
 
 .item-content:hover {
-  display:inline-block;
+   display: inline-block;
+  position: relative;
   z-index: 10;
+  bottom: 80%;
+  left: 30%;
+  color:aliceblue
 
 }
 
